@@ -76,8 +76,6 @@ class BancoMananger {
       case 6:
         print("Saliendo...");
         break;
-      default:
-        print("Opción no válida.");
     }
   }
 
