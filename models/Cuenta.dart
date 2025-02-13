@@ -1,18 +1,20 @@
 import 'Persona.dart';
 
 abstract class Cuenta {
-  int _numeroCuenta;
-  double _saldo;
-  Persona _cliente;
+  int _numeroCuenta; // Número de la cuenta
+  double _saldo; // Saldo que va a tener
+  Persona _cliente; // Cliente propietario de la cuenta
 
-  Cuenta(this._numeroCuenta, this._saldo, this._cliente);
+  Cuenta(this._numeroCuenta, this._saldo, this._cliente); // Constructor de la cuenta
 
-  int get numeroCuenta => _numeroCuenta;
-  set numeroCuenta(int saldo) => _numeroCuenta = numeroCuenta;
+  // Creamoslos getters
   double get saldo => _saldo;
-  set saldo(double saldo) => _saldo = saldo;
   Persona get cliente => _cliente;
-  set cliente(Persona saldo) => _cliente = cliente;
+  int get numeroCuenta => _numeroCuenta;
+  // Creamos los setters
+  set saldo(double saldo) => _saldo = saldo;
+  set cliente(Persona cliente) => _cliente = cliente;
+  set numeroCuenta(int numeroCuenta) => _numeroCuenta = numeroCuenta;
 
   /**
    * Ingresa una cantidad al saldo de la cuenta
