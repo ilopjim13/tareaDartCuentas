@@ -1,25 +1,29 @@
 
-import 'models/banco.dart';
-import 'models/cuenta.dart';
-import 'models/cuentaAhorro.dart';
-import 'models/cuentaCorriente.dart';
-import 'models/persona.dart';
+import 'bancoManager/BancoManager.dart';
+import 'models/CuentaAhorro.dart';
+import 'models/CuentaBancaria.dart';
+import 'models/CuentaCorriente.dart';
+import 'models/Persona.dart';
 
 void main() {
-  List<Cuenta> cuentas = [];
-
-  // Crear clientes
+  // Creamos los clientes
   Persona cliente1 = Persona("Juan", "Pérez", "12345678A");
-  Persona cliente2 = Persona("Ana", "Gómez", "87654321B");
+  Persona cliente2 = Persona("Ana", "Gómez", "11111111B");
+  Persona cliente3 = Persona("Pepe", "López", "22334455C");
 
-  // Crear cuentas
-  CuentaAhorro cuentaAhorro = CuentaAhorro(1001, 0.0, cliente1, 2.0, 500);
-  CuentaCorriente cuentaCorriente = CuentaCorriente(1002, 0.0, cliente2);
+  // Creamos las cuentas
+  CuentaAhorro cuentaAhorro = CuentaAhorro(1001, 30.0, cliente1, 2.0, 50);
+  CuentaCorriente cuentaCorriente = CuentaCorriente(1002, 50.0, cliente2);
+  CuentaBancaria cuentaBancaria = CuentaBancaria(1003, 500, cliente3);
 
-  cuentas.add(cuentaAhorro);
-  cuentas.add(cuentaCorriente);
+  // Creamos el bancoManager
+  BancoMananger banco = BancoMananger();
 
-  Banco banco = Banco();
+  // Añadimos las cuentas a la lista del banco
+  banco.cuentas.add(cuentaAhorro);
+  banco.cuentas.add(cuentaCorriente);
+  banco.cuentas.add(cuentaBancaria);
 
-  banco.programa(cuentas);
+  // Iniciamos el programa
+  banco.programa();
 }
